@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ColorService } from '../color.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private colorService: ColorService) { }
 
   ngOnInit() {
+  }
+
+  get color(): string {
+    return this.colorService.color
+  }
+
+  set color(input) {
+    this.colorService.color = input
   }
 
 }
